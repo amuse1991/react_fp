@@ -109,6 +109,6 @@ ReactDOM.render(
   }, []);
 ```
 
-성공적으로 api가 호출되었습니다.
+성공적으로 api가 호출되는 것을 확인할 수 있습니다.
 
-![result image](https://imgur.com/gsByMYW)
+![result image](https://user-images.githubusercontent.com/31612261/153707490-f8596f4f-81e5-488e-a187-4e47a0e00128.png)
