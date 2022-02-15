@@ -37,6 +37,7 @@ export function makeServer({ environment = "test" }: TServerEnv = {}) {
       })
     },
 
+    // environment === test 인 경우 무시됩니다.
     seeds(server) {
       server.createList("currency", 100);
     },

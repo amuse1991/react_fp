@@ -1,4 +1,3 @@
-import axios from "axios";
 import { useEffect, useState } from "react";
 import { TCurrency } from "../types/currency.type";
 import { apiClient } from "../utils/apiClient";
@@ -6,7 +5,8 @@ import { nanoid } from "@reduxjs/toolkit";
 
 export default function CurrencyList() {
   const [currencyData, setCurrencyData] = useState<TCurrency[]>([]);
-  useEffect(() => {
+
+  function fetchCurrency() {
     apiClient
       .get<{ currencies: TCurrency[] }>("/api/currency", {
         params: {
@@ -17,11 +17,12 @@ export default function CurrencyList() {
         console.log(res.data.currencies);
         setCurrencyData(res.data.currencies || []);
       });
-  }, []);
+  }
 
   return (
     <div>
-      <ul>
+      <button onClick={fetchCurrency}>환율 정보 받아오기</button>
+      <ul data-test-id={"data-cy-currency-ul"}>
         {currencyData.map(currency => (
           <li
             key={nanoid()}
